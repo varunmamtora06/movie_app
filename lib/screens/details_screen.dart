@@ -163,7 +163,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           Text(
                             "${widget.prevResp['Title'] ?? response['Title']}",
                             style: TextStyle(color: Colors.white, fontSize: 40),
-                          ),
+                          textAlign: TextAlign.center,),
                           SizedBox(
                             height: 20,
                           ),
@@ -274,21 +274,24 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   Widget infoSection(String info) {
-    return Container(
-        child: Column(
-      children: <Widget>[
-        Text(
-          info,
-          style: TextStyle(fontSize: 45),
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          widget.prevResp['${info}'],
-          style: TextStyle(fontSize: 25),
-          textAlign: TextAlign.center,
-        ),
-        SizedBox(height: 30),
-      ],
-    ));
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          child: Column(
+        children: <Widget>[
+          Text(
+            info,
+            style: TextStyle(fontSize: 45),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            widget.prevResp['${info}'],
+            style: TextStyle(fontSize: 25),
+            textAlign: TextAlign.justify,
+          ),
+          SizedBox(height: 30),
+        ],
+      )),
+    );
   }
 }

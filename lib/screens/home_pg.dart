@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: <Widget>[
             Container(
-              height: 800,
+              height: 770,
               decoration: BoxDecoration(
                 color: Color(0xff99CC99),
                 borderRadius:
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 // color: Colors.white,
                 padding: EdgeInsets.only(left: 10),
-                margin: EdgeInsets.only(top: screen.size.height/1.3, bottom: 0),
+                margin: EdgeInsets.only(top: 520, bottom: 0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -97,14 +97,14 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: screen.size.width,
-              height: screen.size.height/1.45,
+              height: 500,
               decoration: BoxDecoration(
                 color: Color(0xff339966),
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(65)),
               ),
               child: Container(
-                padding: EdgeInsets.only(top: screen.size.height/1.65),
+                padding: EdgeInsets.only(top: 450),
                 child: Text(
                   "Now Playing",
                   style: TextStyle(color: Colors.white, fontSize: 30),
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: screen.size.height/1.75,
+              height: 450,
               decoration: BoxDecoration(
                 color: Color(0xffffffcc),
                 borderRadius:
@@ -121,8 +121,8 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Container(
                 // color: Colors.white,
-                padding: EdgeInsets.only(left: 10, top: 10),
-                margin: EdgeInsets.only(top: screen.size.height/5, bottom: 0),
+                padding: EdgeInsets.only(left: 10, top: 5),
+                margin: EdgeInsets.only(top: 150, bottom: 50),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
           Container(
               padding: EdgeInsets.all(5),
               // color: Colors.red,
-              width: MediaQuery.of(context).size.width/3,
+              width: 150,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(imgurl))),
