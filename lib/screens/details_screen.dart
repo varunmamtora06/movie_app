@@ -43,8 +43,6 @@ class _DetailScreenState extends State<DetailScreen> {
       }
 
       //print(widget.prevResp);
-    } else {
-      custWidg = CircularProgressIndicator();
     }
     // print(response);
   }

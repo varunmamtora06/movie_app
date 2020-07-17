@@ -44,9 +44,11 @@ class _HomePageState extends State<HomePage> {
           });
       // print("errorrr");
     } else {
+      setState(() {
+        
       custWidg = CircularProgressIndicator();
+      });
     }
-
     // print(res.statusCode);
   }
 
