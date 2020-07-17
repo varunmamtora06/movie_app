@@ -23,6 +23,10 @@ class _HomePageState extends State<HomePage> {
     response = jsonDecode(res.body);
     //print(response);
     if (res.statusCode == 200 && response['Title'] != null) {
+      setState(() {
+        
+      custWidg = Container();
+      });
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -30,6 +34,10 @@ class _HomePageState extends State<HomePage> {
                     prevResp: response,
                   )));
     } else if (response['Response'] == "False") {
+      setState(() {
+        
+      custWidg = Container();
+      });
       showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -46,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     } else {
       setState(() {
         
-      custWidg = CircularProgressIndicator();
+      custWidg = CircularProgressIndicator(backgroundColor: Colors.white,);//this else is just incase if internet is slow/not availale
       });
     }
     // print(res.statusCode);
@@ -62,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: <Widget>[
             Container(
-              height: 690,
+              height: 800,
               decoration: BoxDecoration(
                 color: Color(0xff99CC99),
                 borderRadius:
@@ -71,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 // color: Colors.white,
                 padding: EdgeInsets.only(left: 10),
-                margin: EdgeInsets.only(top: 480, bottom: 20),
+                margin: EdgeInsets.only(top: 550, bottom: 0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -89,14 +97,14 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: screen.size.width,
-              height: 460,
+              height: screen.size.height-360,
               decoration: BoxDecoration(
                 color: Color(0xff339966),
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(65)),
               ),
               child: Container(
-                padding: EdgeInsets.only(top: 410),
+                padding: EdgeInsets.only(top: 450),
                 child: Text(
                   "Now Playing",
                   style: TextStyle(color: Colors.white, fontSize: 30),
@@ -105,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: 400,
+              height: screen.size.height-450,
               decoration: BoxDecoration(
                 color: Color(0xffffffcc),
                 borderRadius:
@@ -114,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 // color: Colors.white,
                 padding: EdgeInsets.only(left: 10, top: 10),
-                margin: EdgeInsets.only(top: 150, bottom: 50),
+                margin: EdgeInsets.only(top: 150, bottom: 0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -185,7 +193,8 @@ class _HomePageState extends State<HomePage> {
                                     setState(() {
                                       search_cancel = Icon(Icons.search,
                                           color: Colors.white);
-                                      custWidg = Container();
+                                      // custWidg = Container();
+                                      custWidg=CircularProgressIndicator(backgroundColor: Colors.white,);
                                     });
                                   },
                                   decoration: InputDecoration(
@@ -233,14 +242,32 @@ class _HomePageState extends State<HomePage> {
 
   Widget moovie(String movieName, String imgurl) {
     return InkWell(
-      onTap: () => getdata(movieName),
-      child: Container(
-          padding: EdgeInsets.all(5),
-          // color: Colors.red,
-          width: 130,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(imgurl))),
+      onTap: ()  {
+        setState(() {
+          custWidg=CircularProgressIndicator(backgroundColor: Colors.white,);
+        });
+        getdata(movieName);
+      },
+      child: Column(
+        children: <Widget>[
+          Container(
+              padding: EdgeInsets.all(5),
+              // color: Colors.red,
+              width: 140,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(imgurl))),
+          Container(
+            child: Text(
+              movieName.toUpperCase(),
+              style: TextStyle(
+                fontSize: 20,
+                
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

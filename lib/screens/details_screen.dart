@@ -24,6 +24,10 @@ class _DetailScreenState extends State<DetailScreen> {
 
     if (response != null) {
       if (response['Response'] == "False") {
+        setState(() {
+        
+      custWidg = Container();
+      });
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -39,6 +43,7 @@ class _DetailScreenState extends State<DetailScreen> {
       } else {
         setState(() {
           widget.prevResp = response;
+          custWidg=Container();
         });
       }
 
@@ -60,7 +65,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: <Widget>[
                   Container(
                     width: screen.size.width,
-                    height: screen.size.height - 400,
+                    height: screen.size.height/2.5,
                     decoration: BoxDecoration(
                       color: Color(0xff339966),
                       borderRadius: BorderRadius.only(
@@ -118,7 +123,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                         setState(() {
                                           search_cancel = Icon(Icons.search,
                                               color: Colors.white);
-                                          custWidg = Container();
+                                          // custWidg = Container();
+                                      custWidg=CircularProgressIndicator(backgroundColor: Colors.white,);
                                         });
                                       },
                                       decoration: InputDecoration(
@@ -176,7 +182,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             height: 5,
                           ),
                           Container(
-                            width: 380,
+                            width: screen.size.width-50,
                             height: 100,
                             decoration: BoxDecoration(
                               color: Color(0xffffffcc),
