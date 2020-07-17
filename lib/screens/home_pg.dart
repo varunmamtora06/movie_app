@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 // color: Colors.white,
                 padding: EdgeInsets.only(left: 10),
-                margin: EdgeInsets.only(top: 550, bottom: 0),
+                margin: EdgeInsets.only(top: screen.size.height/1.3, bottom: 0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -97,14 +97,14 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: screen.size.width,
-              height: screen.size.height-360,
+              height: screen.size.height/1.45,
               decoration: BoxDecoration(
                 color: Color(0xff339966),
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(65)),
               ),
               child: Container(
-                padding: EdgeInsets.only(top: 450),
+                padding: EdgeInsets.only(top: screen.size.height/1.65),
                 child: Text(
                   "Now Playing",
                   style: TextStyle(color: Colors.white, fontSize: 30),
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: screen.size.height-450,
+              height: screen.size.height/1.75,
               decoration: BoxDecoration(
                 color: Color(0xffffffcc),
                 borderRadius:
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 // color: Colors.white,
                 padding: EdgeInsets.only(left: 10, top: 10),
-                margin: EdgeInsets.only(top: 150, bottom: 0),
+                margin: EdgeInsets.only(top: screen.size.height/5, bottom: 0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
           Container(
               padding: EdgeInsets.all(5),
               // color: Colors.red,
-              width: 140,
+              width: MediaQuery.of(context).size.width/3,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(imgurl))),
